@@ -56,6 +56,14 @@ namespace CSharpTest
             var preDouble = list.SumT<TInt, int>();
             Assert.AreEqual(6, preDouble);
 
+            var doubled = list.MapT(x => x * 2);
+            Assert.AreEqual(5, doubled.Count);
+            Assert.AreEqual(Some(2), doubled[0]);
+            Assert.AreEqual(None, doubled[1]);
+            Assert.AreEqual(Some(4), doubled[2]);
+            Assert.AreEqual(None, doubled[3]);
+            Assert.AreEqual(Some(6), doubled[4]);
+
             var postDouble = list.MapT(x => x * 2).SumT<TInt, int>();
             Assert.AreEqual(12, postDouble);
         }
